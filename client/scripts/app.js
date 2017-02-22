@@ -122,6 +122,7 @@ var app = {
     var text = $('#message')[0].value;
     app.send({username: username, text: text, roomname: roomname || 'lobby'});
     $('#message')[0].value = '';
+
   },
 
   handleUsernameClick: function(ID) {
@@ -134,7 +135,8 @@ var app = {
 $(document).ready(function() {
   app.init();
 
-  $('.submit').on('click', function() {
+  $('#send').on('submit', function(event) {
+    event.preventDefault();
     app.handleSubmit();
   });
 
